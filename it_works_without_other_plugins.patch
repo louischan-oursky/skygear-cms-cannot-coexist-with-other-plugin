@@ -1,0 +1,48 @@
+diff --git a/docker-compose.yml b/docker-compose.yml
+index 0fefadd..616b0c9 100644
+--- a/docker-compose.yml
++++ b/docker-compose.yml
+@@ -26,27 +26,27 @@ services:
+       APP_NAME: cmsdidntworkforme
+       TOKEN_STORE: jwt
+       TOKEN_STORE_SECRET: cmsdidntworkforme
+-      PLUGINS: 'PYTHON,NODE'
++      PLUGINS: 'NODE'
+       PYTHON_TRANSPORT: zmq
+       PYTHON_ARGS: 'tcp://*:5555'
+       NODE_TRANSPORT: http
+       NODE_PATH: http://node:9000
+ 
+-  python:
+-    image: quay.io/skygeario/py-skygear:v0.21.0
+-    command: py-skygear __init__.py
+-    volumes:
+-      - ./python/__init__.py:/usr/src/app/__init__.py
+-    links:
+-      - skygear-server
+-    environment:
+-      DATABASE_URL: postgresql://postgres:@postgresql/postgres?sslmode=disable
+-      API_KEY: cmsdidntworkforme
+-      MASTER_KEY: cmsdidntworkforme
+-      APP_NAME: cmsdidntworkforme
+-      SKYGEAR_ADDRESS: tcp://skygear-server:5555
+-      PUBSUB_URL: ws://skygear-server:3000/pubsub
+-      SERVE_STATIC_ASSETS: 'false'
++#  python:
++#    image: quay.io/skygeario/py-skygear:v0.21.0
++#    command: py-skygear __init__.py
++#    volumes:
++#      - ./python/__init__.py:/usr/src/app/__init__.py
++#    links:
++#      - skygear-server
++#    environment:
++#      DATABASE_URL: postgresql://postgres:@postgresql/postgres?sslmode=disable
++#      API_KEY: cmsdidntworkforme
++#      MASTER_KEY: cmsdidntworkforme
++#      APP_NAME: cmsdidntworkforme
++#      SKYGEAR_ADDRESS: tcp://skygear-server:5555
++#      PUBSUB_URL: ws://skygear-server:3000/pubsub
++#      SERVE_STATIC_ASSETS: 'false'
+ 
+   node:
+     build:
