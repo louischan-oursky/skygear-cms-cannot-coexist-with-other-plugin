@@ -1,0 +1,3 @@
+[submodule "cms/skygear-cms"]
+	path = cms/skygear-cms
+	url = git@github.com:oursky/skygear-cms.git
